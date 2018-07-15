@@ -8,7 +8,7 @@ puts message_center.pretty_line
 
 board = Board.new
 puts board.display_top_line.join
-# puts board.display_grid
+print board.display_grid
 puts "\n"
 
 puts 'Please choose a column: '

@@ -24,4 +24,5 @@ Player one = 'X', Player two = 'O'."
   def pretty_line
     '-' * 75
   end
+
 end

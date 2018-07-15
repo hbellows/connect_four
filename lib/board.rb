@@ -20,9 +20,8 @@ class Board
 
   def display_grid
     @grid.values.map.with_index do |line|
-      # require "pry"; binding.pry
       line << "\n"
-    end
+    end.join
   end
 
 end

@@ -1,3 +1,5 @@
+require './lib/message_center'
+
 class GameCenter
 
   include MessageCenter
@@ -24,10 +26,11 @@ class GameCenter
     end
   end
 
-  def validation_loop
-    unless input_valid?(cleaned_input)
-      invalid_enrty
-  end
+  # def validation_loop
+  #   unless input_valid?(cleaned_input)
+  #     invalid_enrty
+  #     validate_input(cleaned_input)
+  # end
 
 
 

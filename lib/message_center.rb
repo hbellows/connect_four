@@ -23,6 +23,13 @@ module MessageCenter
     puts '-' * 80
   end
 
+  def player_turn
+    puts 'Please choose a column: '
+    puts "\n"
+    print '> '
+    input = gets.chomp
+  end
+
   def invalid_entry
     'Invalid entry, please enter a letter from "A" to "G".'
   end

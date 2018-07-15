@@ -1,7 +1,5 @@
 class MessageCenter
-  # def initialize
-  # end
-  #
+
   def welcome
 "Connect Four is a classic board game where players take turns trying to
 create a line of four of their own pieces without being blocked by their
@@ -24,5 +22,6 @@ Player one = 'X', Player two = 'O'."
   def pretty_line
     '-' * 75
   end
+
 
 end

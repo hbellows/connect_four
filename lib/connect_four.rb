@@ -17,8 +17,8 @@ puts "\n"
 print '> '
 game_center = GameCenter.new
 input = gets.chomp
-game_center.sanitize(input)
+clean_input = game_center.sanitize(input)
 puts "\n"
-puts "You've choosen column #{game_center.sanitize(input)}."
+puts game_center.validate_input(clean_input)
 puts "\n"
 puts message_center.pretty_line

@@ -1,4 +1,4 @@
-class Board
+module Board
   attr_reader :grid
 
   def initialize

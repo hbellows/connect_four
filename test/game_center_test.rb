@@ -12,12 +12,14 @@ class GameCenterTest < Minitest::Test
   end
 
   def test_it_can_sanitize_and_prepare_user_input
+    # skip
     game_center = GameCenter.new
 
     assert_equal "G", game_center.sanitize('g')
   end
 
   def test_it_can_detect_valid_user_input
+    # skip
     game_center = GameCenter.new
 
     cleaned_input = game_center.sanitize('a')
@@ -25,6 +27,7 @@ class GameCenterTest < Minitest::Test
   end
 
   def test_it_can_generate_an_input_validation_message
+    # skip
     game_center = GameCenter.new
 
     input = 'a'
@@ -38,6 +41,7 @@ class GameCenterTest < Minitest::Test
   end
 
   def test_it_can_detect_invalid_user_input
+    # skip
     game_center = GameCenter.new
 
     cleaned_input_1 = game_center.sanitize('z')
@@ -47,28 +51,18 @@ class GameCenterTest < Minitest::Test
     assert_equal false, game_center.input_valid?(cleaned_input_2)
   end
 
-  def test_it_can_request_new_input_until_valid_input_is_provideded
-    skip
+  def test_it_can_generate_an_input_invalidation_message
+    # skip
     game_center = GameCenter.new
 
-    cleaned_input_1 = game_center.sanitize('z')
+    input = 'z'
+
+    cleaned_input = game_center.sanitize(input)
     game_center.input_valid?(cleaned_input)
 
-    cleaned_input_2 = game_center.sanitize('1')
+    expected = 'Invalid entry.  Please enter a new column.'
 
+    assert_equal expected, game_center.validate_input(cleaned_input)
   end
-
-  # def test_it_can_generate_an_input_invalidation_message
-  #   game_center = GameCenter.new
-  #
-  #   input = 'z'
-  #
-  #   cleaned_input = game_center.sanitize(input)
-  #   game_center.input_valid?(cleaned_input)
-  #
-  #   expected = 'The letter you have entered is invalid.  Please enter a letter from "A" to "G".'
-  #
-  #   assert_equal expected, game_center.validate_input(cleaned_input)
-  # end
 
 end

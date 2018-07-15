@@ -20,18 +20,34 @@ module MessageCenter
   end
 
   def pretty_line
+    puts "\n"
     puts '-' * 80
+    puts "\n"
   end
 
-  def player_turn
+  def display_game_board
+    puts display_top_line.join
+    puts display_grid
+    puts "\n"
+  end
+
+  def player_one_greeting
     puts 'Please choose a column: '
     puts "\n"
     print '> '
-    input = gets.chomp
   end
 
   def invalid_entry
-    'Invalid entry, please enter a letter from "A" to "G".'
+    puts "\n"
+    puts 'Invalid entry.  Please enter a column between A and G.'
+    puts "\n"
+  end
+
+  def valid_entry
+    puts "\n"
+    puts 'Thank you.'
+    #puts updated grid
+    puts 'Please wait for Player Two.'
   end
 
 

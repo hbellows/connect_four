@@ -1,5 +1,6 @@
 require_relative './board'
 require_relative './message_center'
+require_relative './game_center'
 
 message_center = MessageCenter.new
 puts message_center.pretty_line
@@ -14,9 +15,10 @@ puts "\n"
 puts 'Please choose a column: '
 puts "\n"
 print '> '
+game_center = GameCenter.new
 input = gets.chomp
-player_input = input.upcase
+game_center.sanitize(input)
 puts "\n"
-puts "You've choosen column #{player_input}."
+puts "You've choosen column #{game_center.sanitize(input)}."
 puts "\n"
 puts message_center.pretty_line

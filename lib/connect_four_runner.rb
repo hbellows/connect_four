@@ -8,13 +8,14 @@ class ConnectFour
   include MessageCenter
   include Board
 
+
   def intro
     pretty_line
     welcome
     pretty_line
-    puts display_top_line.join
-    puts display_grid
-    player_turn
+    display_game_board
+    game_center = GameCenter.new
+    game_center.player_one_turn
   end
 
   # board = Board.new

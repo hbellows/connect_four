@@ -1,0 +1,3 @@
+class GameCenter
+
+end

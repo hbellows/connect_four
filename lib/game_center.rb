@@ -1,10 +1,13 @@
 require './lib/message_center'
 require './lib/board'
+require './lib/player'
 
 class GameCenter
-
+  attr_reader :board,
+              :player
   def initialize
     @board = Board.new
+    @player = Player.new
   end
 
   include MessageCenter
@@ -12,12 +15,14 @@ class GameCenter
   def player_one_turn
     player_one_greeting
     input = gets.chomp
-    # puts board.display_header
-    # puts board.display_rows
+    board.repl
     cleaned_input = sanitize(input)
     input_valid?(cleaned_input)
     validation_loop(cleaned_input)
     validate_input(cleaned_input)
+    player.saved_moves(cleaned_input)
+    board.repl
+    # require "pry"; binding.pry
   end
 
   def sanitize(input)
@@ -27,7 +32,6 @@ class GameCenter
 
   def input_valid?(cleaned_input)
     acceptable_input = @board.header.keys
-    # require "pry"; binding.pry
     acceptable_input.include?(cleaned_input)
   end
 

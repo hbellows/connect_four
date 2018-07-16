@@ -12,9 +12,7 @@ class ConnectFour
   def intro
     pretty_line
     welcome
-    pretty_line
-    puts @board.display_header
-    puts @board.display_rows
+    @board.repl
     puts "\n"
     game_center = GameCenter.new
     game_center.player_one_turn

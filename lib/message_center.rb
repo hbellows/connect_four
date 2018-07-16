@@ -25,12 +25,6 @@ module MessageCenter
     puts "\n"
   end
 
-  def display_game_board
-    puts display_top_line.join
-    puts display_grid
-    puts "\n"
-  end
-
   def player_one_greeting
     puts 'Please choose a column: '
     puts "\n"

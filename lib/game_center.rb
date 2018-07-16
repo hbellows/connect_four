@@ -3,13 +3,17 @@ require './lib/board'
 
 class GameCenter
 
+  def initialize
+    @board = Board.new
+  end
+
   include MessageCenter
-  include Board
 
   def player_one_turn
     player_one_greeting
     input = gets.chomp
-    # puts "\n"
+    # puts board.display_header
+    # puts board.display_rows
     cleaned_input = sanitize(input)
     input_valid?(cleaned_input)
     validation_loop(cleaned_input)
@@ -22,7 +26,8 @@ class GameCenter
 
 
   def input_valid?(cleaned_input)
-    acceptable_input = grid.keys
+    acceptable_input = @board.header.keys
+    # require "pry"; binding.pry
     acceptable_input.include?(cleaned_input)
   end
 

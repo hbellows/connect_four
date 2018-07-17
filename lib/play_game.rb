@@ -2,7 +2,7 @@ require './lib/board'
 require './lib/game_center'
 require './lib/message_center'
 
-class ConnectFour
+class PlayGame
   include MessageCenter
 
   def initialize
@@ -20,7 +20,7 @@ class ConnectFour
   def start
     play_loop
   end
-  
+
   def play_loop
     until player_win? || computer_win?
       repl

@@ -1,4 +1,4 @@
-class Connect
+class Board
   # attr_reader :computer, :player
   attr_accessor :grid
   attr_reader :i

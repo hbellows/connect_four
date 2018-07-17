@@ -22,7 +22,7 @@ class Player
       place_player(player, input)
     end
     place(player, input)
-  end
+  end 
 
 
 end

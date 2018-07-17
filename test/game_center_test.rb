@@ -27,7 +27,7 @@ class GameCenterTest < Minitest::Test
   end
 
   def test_it_can_generate_an_input_validation_message
-    # skip
+    skip
     game_center = GameCenter.new
 
     input = 'a'
@@ -35,7 +35,7 @@ class GameCenterTest < Minitest::Test
     cleaned_input = game_center.sanitize(input)
     game_center.input_valid?(cleaned_input)
 
-    expected = "You have choosen column A."
+    expected = 'Thank you. Please wait for Player Two.'
 
     assert_equal expected, game_center.validate_input(cleaned_input)
   end
@@ -52,7 +52,7 @@ class GameCenterTest < Minitest::Test
   end
 
   def test_it_can_generate_an_input_invalidation_message
-    # skip
+    skip
     game_center = GameCenter.new
 
     input = 'z'
@@ -60,9 +60,24 @@ class GameCenterTest < Minitest::Test
     cleaned_input = game_center.sanitize(input)
     game_center.input_valid?(cleaned_input)
 
-    expected = 'Invalid entry.  Please enter a new column.'
+    expected = 'Invalid entry.  Please enter a column between A and G.'
 
     assert_equal expected, game_center.validate_input(cleaned_input)
+  end
+
+  def test_it_can_add_valid_move_to_players_saved_moves
+    skip
+    player = Player.new
+    game_center = GameCenter.new
+
+    input = 'c'
+    cleaned_input = game_center.sanitize(input)
+    game_center.input_valid?(cleaned_input)
+    game_center.validation_loop(cleaned_input)
+    game_center.validate_input(cleaned_input)
+    player.saved_moves(cleaned_input)
+
+    assert_equal ['C']. player.moves
   end
 
 end

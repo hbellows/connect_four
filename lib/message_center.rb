@@ -16,7 +16,7 @@ module MessageCenter
     in a draw if the 7-column, 6-row grid is filled without either player
     successfully connecting four.
 
-    Player one = 'X', Player two = 'O'."
+    Player one = 'X', Player two = 'O'.\n"
   end
 
   def pretty_line
@@ -39,9 +39,34 @@ module MessageCenter
 
   def valid_entry
     puts "\n"
-    puts 'Thank you.'
-    #puts updated grid
-    puts 'Please wait for Player Two.'
+    puts 'Thank you. Please wait for Player Two.'
+    puts "\n"
+  end
+
+  def exit_message
+    puts 'Would you like to try again? Y or N'
+    input = get.chomp.upcase
+    if yes_commands(inputs)
+      start
+    elsif no_commands(input)
+      puts 'Thanks for playing!'
+      exit
+    else
+      puts 'I didn\'t recognize your answer, please try again'
+      exit_message
+    end
+  end
+
+  def yes_commands(input)
+    %w[Y YES].include?(input)
+  end
+
+  def no_commands(input)
+    %w[N NO].include?(input)
+  end
+
+  def quit_commands(input)
+    %w[Q QUIT].include?(input)
   end
 
 

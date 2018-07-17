@@ -1,4 +1,5 @@
-require './lib/connect_four_runner'
+require './lib/connect'
 
-connect_four = ConnectFour.new
-connect_four.intro
+play = PlayGame.new
+
+play.start

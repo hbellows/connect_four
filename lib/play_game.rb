@@ -28,6 +28,10 @@ class PlayGame
   end
 
   def start
+    pretty_line
+    welcome
+    pretty_line
+    sleep 10
     board = Board.new
     @grid = board.grid
     @player = Player.new(board)
@@ -50,17 +54,17 @@ class PlayGame
     end
     if computer.win?
       computer_wins
-      exit_message
+      end_of_game
     else
       player_wins
-      exit_message
+      end_of_game
     end
   end
 
   def place_player
     print '> '
     input = gets.chomp.upcase
-    exit_message if quit_commands(input)
+    end_of_game if quit_commands(input)
     validation_loop(input)
   end
 
@@ -70,6 +74,21 @@ class PlayGame
     else
       choose_column
       place_player
+    end
+  end
+
+  def end_of_game
+    play_again
+    input = gets.chomp.upcase
+    if yes_commands(input)
+      @game_over = false
+      start
+    elsif no_commands(input)
+      thank_you
+      exit
+    else
+      input_not_recognized
+      end_of_game
     end
   end
 

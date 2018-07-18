@@ -25,21 +25,6 @@ module MessageCenter
     puts "\n"
   end
 
-  def exit_message
-    puts 'Would you like to try again? Y or N'
-    input = gets.chomp.upcase
-    if yes_commands(input)
-      @game_over = false
-      start
-    elsif no_commands(input)
-      puts 'Thanks for playing!'
-      exit
-    else
-      puts 'I didn\'t recognize your answer, please try again'
-      exit_message
-    end
-  end
-
   def computer_wins
     puts 'I WIN!'
   end
@@ -50,5 +35,17 @@ module MessageCenter
 
   def choose_column
     puts 'Please choose a letter between A and G'
+  end
+
+  def play_again
+    puts 'Would you like to try again? Y or N'
+  end
+
+  def thank_you
+    puts 'Thanks for playing!'
+  end
+
+  def input_not_recognized
+    puts 'I didn\'t recognize your answer, please try again'
   end
 end

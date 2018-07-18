@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/player'
+require './lib/board'
 
 class PlayerTest < Minitest::Test
 
@@ -10,21 +11,12 @@ class PlayerTest < Minitest::Test
     assert_instance_of Player, player
   end
 
-  def test_a_player_starts_with_no_moves
+  def test_player_provides_valid_input
     player = Player.new
 
-    assert_equal [], player.moves
+    input = "12"
+
+    assert_equal false, player.input_valid?(input)
   end
 
-  def test_a_player_can_store_moves
-    player = Player.new
-
-    assert_equal ['A'], player.saved_moves('A')
-  end
-
-  def test_it_can_place_a_game_piece
-    player = Player.new
-
-    
-  end
 end

@@ -1,4 +1,4 @@
-require './lib/connect'
+require './lib/play_game'
 
 play = PlayGame.new
 

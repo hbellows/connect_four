@@ -25,23 +25,6 @@ module MessageCenter
     puts "\n"
   end
 
-  def player_one_greeting
-    puts 'Please choose a column: '
-    puts "\n"
-    print '> '
-  end
-
-  def invalid_entry
-    puts "\n"
-    puts 'Invalid entry.  Please enter a column between A and G.'
-    puts "\n"
-  end
-
-  def valid_entry
-    puts "\n"
-    puts 'Thank you. Please wait for Player Two.'
-    puts "\n"
-  end
 
   def exit_message
     puts 'Would you like to try again? Y or N'
@@ -56,18 +39,5 @@ module MessageCenter
       exit_message
     end
   end
-
-  def yes_commands(input)
-    %w[Y YES].include?(input)
-  end
-
-  def no_commands(input)
-    %w[N NO].include?(input)
-  end
-
-  def quit_commands(input)
-    %w[Q QUIT].include?(input)
-  end
-
 
 end

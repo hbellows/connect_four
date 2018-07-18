@@ -1,6 +1,6 @@
 require './lib/commands'
 
-class Computer 
+class Computer
   include Commands
 
   attr_accessor :grid
@@ -58,7 +58,7 @@ class Computer
   def computer_horizontal_win?
     (0..6).each do |index|
       (0..6).each do |idx|
-        next if grid[index+3].nil?
+        if grid[index+3].nil?
         won = [grid[index][idx], grid[index+1][idx], grid[index+2][idx], grid[index+3][idx]]
         return true if won.all? {|cell| cell=='O'}
       end
@@ -70,7 +70,7 @@ class Computer
     diagonal = []
     grid.each_index do |index|
       (0..3).each do |idx|
-        next if grid[index+3].nil?
+        if grid[index+3].nil?
         diagonal << [grid[index][idx], grid[index+1][idx+1], grid[index+2][idx+2], grid[index+3][idx+3]]
         diagonal << [grid[index][idx], grid[index-1][idx+1], grid[index-2][idx+2], grid[index-3][idx+3]]
       end

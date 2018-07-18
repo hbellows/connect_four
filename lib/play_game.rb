@@ -2,10 +2,11 @@ require './lib/board'
 require './lib/computer'
 require './lib/player'
 require './lib/commands'
-
+require './lib/message_center'
 
 class PlayGame
   include Commands
+  include MessageCenter
 
   attr_reader :computer, :player
   attr_accessor :grid, :game_over
@@ -48,10 +49,10 @@ class PlayGame
       break if player.win?
     end
     if computer.win?
-      puts 'I WIN!'
+      computer_wins
       exit_message
     else
-      puts 'You got lucky....this time.....'
+      player_wins
       exit_message
     end
   end
@@ -67,23 +68,9 @@ class PlayGame
     if player.input_valid?(input) && !player.full(input)
       player.place(input)
     else
-      puts 'Please choose a letter between A and G'
+      choose_column
       place_player
     end
   end
 
-  def exit_message
-    puts 'Would you like to try again? Y or N'
-    input = gets.chomp.upcase
-    if yes_commands(input)
-      @game_over = false
-      start
-    elsif no_commands(input)
-      puts 'Thanks for playing!'
-      exit
-    else
-      puts 'I didn\'t recognize your answer, please try again'
-      exit_message
-    end
-  end
 end

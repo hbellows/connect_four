@@ -11,12 +11,4 @@ class PlayerTest < Minitest::Test
     assert_instance_of Player, player
   end
 
-  def test_player_provides_valid_input
-    player = Player.new
-
-    input = "12"
-
-    assert_equal false, player.input_valid?(input)
-  end
-
 end

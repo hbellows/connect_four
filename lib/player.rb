@@ -64,7 +64,6 @@ class Player
         next if grid[index+3].nil?
         diagonal << [grid[index][idx], grid[index+1][idx+1], grid[index+2][idx+2], grid[index+3][idx+3]]
         diagonal << [grid[index][idx], grid[index-1][idx+1], grid[index-2][idx+2], grid[index-3][idx+3]]
-
         diagonal.any? do |line|
           return true if line.all? {|cell| cell=='X'}
         end

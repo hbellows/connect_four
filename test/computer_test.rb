@@ -64,9 +64,9 @@ class ComputerTest < Minitest::Test
   def test_it_can_wait_for_a_computer_diagonal_win
     @computer.grid = [
       ["A0", "A1", "A2", "A3", "A4", "A5"],
-      ["B0", "B1", "A2", "B3", "B4", "O"],
-      ["C0", "C1", "C2", "C3", "O", "C5"],
-      ["D0", "D1", "D2", "O", "C4", "D5"],
+      ["B0", "B1", "A2", "B3", "B4", "O "],
+      ["C0", "C1", "C2", "C3", "O ", "C5"],
+      ["D0", "D1", "D2", "O ", "C4", "D5"],
       ["E0", "E1", "E2", "E3", "E4", "E5"],
       ["F0", "F1", "F2", "F3", "F4", "F5"],
       ["G0", "G1", "G2", "G3", "G4", "G5"]
@@ -76,10 +76,10 @@ class ComputerTest < Minitest::Test
 
   def test_it_can_detect_a_computer_diagonal_win
     @computer.grid = [
-      ["O", "A1", "A2", "A3", "A4", "A5"],
-      ["B0", "O", "A2", "B3", "B4", "B5"],
-      ["C0", "C1", "O", "C3", "C4", "C5"],
-      ["D0", "D1", "D2", "O", "C4", "D5"],
+      ["O ", "A1", "A2", "A3", "A4", "A5"],
+      ["B0", "O ", "A2", "B3", "B4", "B5"],
+      ["C0", "C1", "O ", "C3", "C4", "C5"],
+      ["D0", "D1", "D2", "O ", "C4", "D5"],
       ["E0", "E1", "E2", "E3", "E4", "E5"],
       ["F0", "F1", "F2", "F3", "F4", "F5"],
       ["G0", "G1", "G2", "G3", "G4", "G5"]

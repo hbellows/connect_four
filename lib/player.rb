@@ -48,7 +48,7 @@ class Player
 
   def player_horizontal_win?
     (0..6).each do |index|
-      (0..6).each do |idx|
+      (0..5).each do |idx|
         next if grid[index+3].nil?
         won = [grid[index][idx], grid[index+1][idx], grid[index+2][idx], grid[index+3][idx]]
         return true if won.all? {|cell| cell=='X'}

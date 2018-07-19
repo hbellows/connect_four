@@ -31,7 +31,7 @@ class PlayGame
     pretty_line
     welcome
     pretty_line
-    sleep 10
+    sleep 3
     board = Board.new
     @grid = board.grid
     @player = Player.new(board)
